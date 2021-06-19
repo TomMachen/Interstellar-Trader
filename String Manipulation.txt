@@ -1,0 +1,104 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace String_Manipulation_1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string stringVar = textBox1.Text;
+
+            textBox1.Text = stringVar.ToUpper();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string stringTrim = textBox2.Text;
+
+            stringTrim = stringTrim.TrimStart(null);
+
+            int stringLength = stringTrim.Length;
+
+            MessageBox.Show(stringLength.ToString());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string stringEmail = textBox3.Text;
+
+            int result = stringEmail.IndexOf("@");
+
+            if(result == -1)
+            {
+                MessageBox.Show("Invalid email address!");
+            }
+            else
+            {
+                MessageBox.Show("@ found at position" + result.ToString());
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string someText = "Some text";
+
+            MessageBox.Show(someText);
+
+            someText = someText.Insert(5, "more ");
+
+            MessageBox.Show(someText);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string paddingLeft = textBox4.Text;
+
+            paddingLeft = paddingLeft.PadLeft(20, '*');
+
+            textBox4.Text = paddingLeft;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string emailAddress = "enquiry@me.co.uk";
+            string result = "";
+
+            result = emailAddress.Substring(10, 6);
+
+            if(result == ".co.uk")
+            {
+                MessageBox.Show("Email address OK!");
+            }
+            else
+            {
+                MessageBox.Show("Bad email address!");
+            }
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string lineOfText = "item1, item2, item3";
+
+            string[] wordArray = lineOfText.Split(',');
+
+            MessageBox.Show(wordArray[0]);
+            MessageBox.Show(wordArray[1]);
+            MessageBox.Show(wordArray[2]);
+        }
+    }
+}
+
